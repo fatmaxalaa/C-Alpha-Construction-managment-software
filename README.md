@@ -16,5 +16,7 @@ Advantages of C-Alpha:
 As a project manager, you are supposed to overlook the execution of projects right from the start to the finish. 
 C-Alpha allows you to carry out every phase of this process efficiently. Be it planning or scheduling C-Alpha can assist you with ease. 
 Even in your junior project manager role, it becomes less complicated to handle complex projects and report analysis. 
+
 2-Free and Open Source 
+
 3-Breaking down Complex Projects
