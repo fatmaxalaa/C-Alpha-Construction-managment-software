@@ -1,0 +1,75 @@
+﻿@model Resources.Models.Task
+
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Views/Shared/_ AdminLayoutPage.cshtml";
+}
+
+ @{
+     List<string> options = (List<string>)ViewBag.actsoptions;
+     List<string> taskeName = (List<string>)ViewBag.tasksoptions;
+     List<int> tasktypes = (List<int>)ViewBag.tasksTypesoptions;
+ }
+
+left
+@section PageSec{
+
+     <section class="home-section" id="home">
+      <div class="home-content" >
+<h1 style="margin-top:5px; color:crimson;">Create</h1>
+
+<h4>Task</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="EditProjectdets">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Text" class="control-label"></label>
+                <select asp-for="Text" class="form-control" />  
+                <option> ------------ TasK Name ------------ </option>
+                @foreach(var item in taskeName)
+                {
+                     <option value="@item">@item</option>
+                    
+                }
+                 </select>
+                <span asp-validation-for="Text" class="text-danger"></span>
+            </div>
+           <div class="form-group">
+                <label asp-for="type1" class="control-label"></label>
+                <select asp-for=" type1" class="form-control"/>
+                      <option> ---------------- Type --------------- </option> 
+                        <option>Task</option>
+                              <option>Project</option>
+                              <option>Milestone</option>
+
+                </select>
+            <span asp-validation-for="type1" class="text-danger"></span>
+            </div>
+ 
+            <div class="form-group">
+                <label asp-for="projectsrelated " class="control-label"></label>
+                <select asp-for="projectsrelated" class="form-control" />  
+                <option> ------------projectsrelated------------ </option>
+                @foreach(var item in options)
+                {
+                     <option value="@item">@item</option>
+                    
+                }
+
+                </select>
+                <span asp-validation-for="projectsrelated" class="text-danger"></span>
+
+            </div>
+             <div class="form-group">
+               <a asp-action="EditProjectdets" value="Save" class="btn btn-outline-primary mt-4"/>
+                <a asp-action="Index" class="btn btn-outline-secondary mt-4 ml-2" style="display:inline-block"> Back to List </a>            
+                </div>
+               </form>
+            </div>
+
+      </div>
+
+      </section>
+}

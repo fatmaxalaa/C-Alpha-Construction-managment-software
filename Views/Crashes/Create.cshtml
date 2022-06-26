@@ -1,0 +1,92 @@
+﻿@model Resources.Models.Crashing
+
+@{
+    ViewData["Title"] = "Create";
+     Layout = "~/Views/Shared/_ AdminLayoutPage.cshtml";
+}
+@{
+    List<string>optionName = (List<string>)ViewBag.actsoptionsName ;
+      List<int> options = (List<int>)ViewBag.actsoptions;
+      List<int>actsoptionsID=(List<int>)ViewBag.actsoptionsID;
+}
+
+@section PageSec{
+     <section class="home-section" id="home">
+      <div class="home-content" >
+      <div class="container p-3 mt-4 border "  style="box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;">
+            <h1  class="projectName mt-3">Complete <span>Critical Path</span></h1>
+
+     
+  
+
+            <div class="mt-3" style="color:black;">
+            
+                    <form asp-action="Create">
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                          <div class="form-group">
+                            <label asp-for="TaskName" class="control-label"></label>
+                             <select asp-for="TaskName" class="form-control" />   
+                            @foreach(var item in optionName)
+                            {
+                                 <option value="@item">@item</option>
+                    
+                            }
+
+                            </select>
+                            <span asp-validation-for="TaskName" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="OptimisticDuration" class="control-label"></label>
+                            <input asp-for="OptimisticDuration" class="form-control" />
+                            <span asp-validation-for="OptimisticDuration" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="MostLikelyDuration" class="control-label"></label>
+                            <select asp-for="MostLikelyDuration" class="form-control" />    
+                            @foreach(var item in options)
+                            {
+                                 <option value="@item">@item</option>
+                    
+                            }
+
+                            </select>
+                            <span asp-validation-for="MostLikelyDuration" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="PessimesticDuration" class="control-label"></label>
+                            <input asp-for="PessimesticDuration" class="form-control" />
+                            <span asp-validation-for="PessimesticDuration" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="TaskId" class="control-label"></label>
+                              <select asp-for="TaskId" class="form-control" />   
+                            @foreach(var item in actsoptionsID)
+                            {
+                                 <option value="@item">@item</option>
+                    
+                            }
+
+                            </select>
+                            <span asp-validation-for="TaskId" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="RequiredTime" class="control-label"></label>
+                            <input asp-for="RequiredTime" class="form-control" />
+                            <span asp-validation-for="RequiredTime" class="text-danger"></span>
+                        </div>
+         
+                        <div class="form-group">
+                
+                            <a asp-action="Index" class="bttn mr-3 px-3"><i class="fa-solid fa-circle-left"></i></a>
+                            <input type="submit" value="Create" class="bttn" />
+                        </div>            
+                    </form>
+             
+            </div>
+</div>
+</div>
+</section>
+
+}
+
+

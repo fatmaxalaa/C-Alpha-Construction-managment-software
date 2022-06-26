@@ -1,0 +1,149 @@
+﻿@using Newtonsoft.Json
+@model IEnumerable<Resources.Models.Task>
+<head>
+<script src="https://cdn.anychart.com/releases/8.6.0/js/anychart-core.min.js"></script>
+<script src ="https://cdn.anychart.com/releases/8.6.0/js/anychart-gantt.min.js"></script>
+</head>
+@{
+    ViewData["Title"] = "Critical";
+    Layout = "~/Views/Shared/_ AdminLayoutPage.cshtml";
+}
+
+@{
+    var Setting = new Newtonsoft.Json.JsonSerializerSettings();
+        List<string> ActivitiesNames = (List<string>)ViewBag.ActivitiesNames;
+                var ActivitiesID=ViewBag.ActivitiesID;
+               var Starts= ViewBag.Starts;
+                var Ends=ViewBag.Ends;
+
+
+			var StartsYears=ViewBag.StartsYears;
+           var  StartsDays=ViewBag.StartsDays;
+           var  StartsMonth=ViewBag.StartsMonth ;
+			var EndYears=ViewBag.EndYears;
+           var  EndDays=ViewBag.EndDays;
+           var  EndMonth=ViewBag.EndMonth;
+    }
+
+	@section PageSec{
+    
+				
+						<section class="home-section" id="home">
+						<div class="home-content" >
+							
+						<script src="https://cdn.anychart.com/releases/8.6.0/js/anychart-core.min.js"></script>
+							<script src ="https://cdn.anychart.com/releases/8.6.0/js/anychart-gantt.min.js"></script>
+                            <div>
+						<div id = "container"  style = "width:1200px;height:700px"></div>
+						 
+                     <table class="mt-3 table table-striped text-center"  >
+                        <thead class="thead-dark">
+                        <tr>
+                            <th >
+                                @Html.DisplayNameFor(model => model.Text)
+                            </th>
+                            <th >
+                                @Html.DisplayNameFor(model => model.StartDate)
+                            </th>
+                            <th >
+                                @Html.DisplayNameFor(model => model.Duration)
+                            </th>
+                            <th >
+                                @Html.DisplayNameFor(model => model.EndDate)
+                            </th>
+                      
+                    
+                            
+                        </tr>
+                    </thead>
+                    <tbody>
+                @foreach (var item in Model) {
+                        <tr >
+                            <td >
+                                @Html.DisplayFor(modelItem => item.Text)
+                            </td>
+                            <td >
+                                @Html.DisplayFor(modelItem => item.StartDate)
+                            </td>
+                            <td >
+                                @Html.DisplayFor(modelItem => item.Duration)
+                            </td>
+                            <td >
+                                @Html.DisplayFor(modelItem => item.EndDate)
+                            </td>
+     
+                    
+                        
+                        </tr>
+                }
+                    </tbody>
+                </table>
+                </div>
+                <script>
+
+								var ActivitiesNames1=@Html.Raw(@JsonConvert.SerializeObject(ActivitiesNames,Setting));
+							 var ActivitiesID1=@Html.Raw(@JsonConvert.SerializeObject(ActivitiesID,Setting));
+							  var Starts1=@Html.Raw(@JsonConvert.SerializeObject(Starts,Setting));
+							  var Ends1=@Html.Raw(@JsonConvert.SerializeObject(Ends,Setting));
+
+							  var StartsYears1=@Html.Raw(@JsonConvert.SerializeObject(StartsYears,Setting));
+						   var  StartsDays1=@Html.Raw(@JsonConvert.SerializeObject(StartsDays,Setting));
+						   var  StartsMonth1=@Html.Raw(@JsonConvert.SerializeObject(StartsMonth,Setting));
+							var EndYears1=@Html.Raw(@JsonConvert.SerializeObject(EndYears,Setting));
+						   var  EndDays1=@Html.Raw(@JsonConvert.SerializeObject(EndDays,Setting));
+						   var  EndMonth1=@Html.Raw(@JsonConvert.SerializeObject(EndMonth,Setting));
+    
+									   class Activity{
+	
+					constructor(id,name,actualStart,actualEnd,connectTo,connectorType,progressValue){
+						this.id=id;
+						this.name=name;
+						this.actualEnd=actualEnd;
+						this.actualStart=actualStart;
+						this.connectTo=connectTo;
+						this.connectorType=connectorType;
+						this.progressValue=progressValue;
+		}
+	}
+
+								var data1=[];
+									for(var i =0;i<ActivitiesNames1.length;i++){
+										var a =Date.UTC(StartsYears1[i],StartsMonth1[i],StartsDays1[i])
+										var b=Date.UTC(EndYears1[i],EndMonth1[i],EndDays1[i])
+										o=new Activity(ActivitiesID1[i],ActivitiesNames1[i],a,b,"","finish-start","0%");
+										data1.push(o);
+
+									}
+									var maxdateyear =0;
+									for(var r=0;r<EndYears1.length;r++){
+									if(EndYears1[r]>maxdateyear){
+									maxdateyear=EndYears1[r]}
+									}
+									anychart.onDocumentReady(function () {// create data
+									var data =data1;
+									// create a data tree
+									var treeData = anychart.data.tree(data, "as-tree");
+
+									// create a chart
+									var chart = anychart.ganttProject();
+	
+									// set the data
+									chart.data(treeData);
+									// configure the scale
+									chart.getTimeline().scale().maximum(Date.UTC(maxdateyear,12,31));
+									// set the container id
+									chart.container("container");
+									// initiate drawing the chart
+									chart.draw();
+									// fit elements to the width of the timeline
+									chart.fitAll();
+									
+	
+													});
+											 </script>
+									</div>
+                       
+								 </section>
+		
+					 
+    }

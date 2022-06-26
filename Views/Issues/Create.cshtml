@@ -1,0 +1,48 @@
+﻿@model Resources.Models.Issues
+
+@{
+    ViewData["Title"] = "Create Issues";
+    Layout = "~/Views/Shared/_ AdminLayoutPage.cshtml";
+}
+
+@section PageSec
+{
+    <section class="home-section" id="home">
+            <div class="home-content">
+            <div class="container p-3 mt-4 border" style="box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;">
+            <h1  class="projectName mt-3">Create <span>Issues</span></h1>
+            <hr />
+            <div class="row">
+                <div class="col-md-4">
+                    <form asp-action="Create">
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                        <div class="form-group">
+                            <label asp-for="IsusseName" class="control-label"></label>
+                            <input asp-for="IsusseName" class="form-control" />
+                            <span asp-validation-for="IsusseName" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="IssuerDescription" class="control-label"></label>
+                            <input asp-for="IssuerDescription" class="form-control" />
+                            <span asp-validation-for="IssuerDescription" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="IssueDate" class="control-label"></label>
+                            <input asp-for="IssueDate" class="form-control" />
+                            <span asp-validation-for="IssueDate" class="text-danger"></span>
+                        </div>
+                        <div > <a asp-action="Index"class="bttn" style="font-size:18px;"><i class="fa-solid fa-circle-left"></i></a>
+                            <input  type="submit" value="Create" class="bttn" />
+                              @*<a class="btn btn-danger" asp-action="Index">Back</a>*@
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+
+
+</div>
+</section>
+
+}
+

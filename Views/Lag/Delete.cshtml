@@ -1,0 +1,52 @@
+﻿@model Resources.Models.Lag
+
+@{
+    ViewData["Title"] = "create Lag";
+    Layout = "~/Views/Shared/_ AdminLayoutPage.cshtml";
+   
+}
+@section PageSec{
+
+    <section class="home-section" id="home">
+        <div id="GFG" class="home-content" style="height:100%;display:block; overflow-y:scroll;">
+    
+                        <h1>Delete</h1>
+
+                        <h3>Are you sure you want to delete this?</h3>
+                        <div>
+                            <h4>Lag</h4>
+                            <hr />
+                            <dl class="row">
+                                <dt class = "col-sm-2">
+                                    @Html.DisplayNameFor(model => model.SourceName)
+                                </dt>
+                                <dd class = "col-sm-10">
+                                    @Html.DisplayFor(model => model.SourceName)
+                                </dd>
+                                <dt class = "col-sm-2">
+                                    @Html.DisplayNameFor(model => model.TargetName)
+                                </dt>
+                                <dd class = "col-sm-10">
+                                    @Html.DisplayFor(model => model.TargetName)
+                                </dd>
+                                <dt class = "col-sm-2">
+                                    @Html.DisplayNameFor(model => model.LagValue)
+                                </dt>
+                                <dd class = "col-sm-10">
+                                    @Html.DisplayFor(model => model.LagValue)
+                                </dd>
+                            </dl>
+    
+                            <form asp-action="Delete">
+                                <input type="hidden" asp-for="Id" />
+                                <input type="submit" value="Delete" class="btn btn-danger" /> |
+                                <a asp-action="Index">Back to List</a>
+                            </form>
+                        </div>
+    </div>
+                       
+    </section>
+    
+
+
+}

@@ -1,0 +1,98 @@
+﻿@model FileUploadViewModel
+@{
+    ViewData["Title"] = "Index";
+       Layout = "~/Views/Shared/_ AdminLayoutPage.cshtml";
+}
+
+
+
+
+
+
+@section PageSec{
+    <section class="home-section text-dark" id="home">
+        <div class="home-content">
+            <div class="row">
+                <div class="col-12">
+                    <h4 class = "mt-4"> Uploade Files </h4>
+                    <hr class="w-50" />
+                </div>
+
+                <div clss="col-12">
+                   @if (ViewBag.Message != null)
+                    {
+                        <div class="alert alert-success alert-dismissible" style="margin-top:23px">
+                            @ViewBag.Message
+                        </div>
+                    }
+                        <form method="post" enctype="multipart/form-data">
+                            <input type="file" name="files" multiple required  class="text-primary ml-3 font-italic" />
+                            <input type="text" autocomplete="off" placeholder="Enter File Description" name="description" required class="form-control mt-4 mb-4 ml-3 w-100" />
+                            <button type="submit" class="btn btn-primary ml-3" asp-controller="File" asp-action="UploadToFileSystem"> <i class="fa-solid fa-upload text-white" style="font-size:18px; margin:0 8px 0 0;"></i> Upload</button>
+                        </form>
+                </div>
+                <br />
+                <hr />
+                <br />
+                <div class="col-12">
+
+                    @if (Model.FilesOnFileSystem.Count == 0)
+                    {
+                        <caption>No Records Found</caption>
+                    }
+                    else
+                    {
+
+                    <table class="table table-striped mt-5 w-100 text-center">
+                        <thead class="thead-dark">
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">Name</th>
+                                <th scope="col">Description</th>
+                                <th scope="col">File Type</th>
+                                <th scope="col">Created On</th>
+                                <th scope="col">Download</th>
+                                <th scope="col">Delete</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var file in Model.FilesOnFileSystem)
+                            {
+                                <tr>
+                                    <th>@file.Id</th>
+                                    <td>@file.Name</td>
+                                    <td>@file.Description</td>
+                                    <td>@file.FileType</td>
+                                    <td>@file.CreatedOn</td>
+                                    <td>
+                                        <a type="button"  asp-controller="File" asp-action="DownloadFileFromFileSystem" asp-route-id="@file.Id"> <i class="fa-solid fa-cloud-arrow-down m-1 text-success" style="font-size:20px"></i>  </a>
+                                       
+                                    </td>
+                                     <td>
+                                      
+                                        <a type="button" asp-controller="File" asp-action="DeleteFileFromFileSystem" asp-route-id="@file.Id"> <i class="fa-solid fa-trash-can m-1 text-danger" style="font-size:20px" ></i> </a>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                    }
+                </div>
+
+            </div>
+       
+
+
+       
+
+
+
+@*<h4>Files on File System</h4>*@
+
+
+</div>
+</section>
+}
+
+
+<script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>

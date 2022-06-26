@@ -1,0 +1,144 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+     <!-- Boxicons CDN Link   -->
+        <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
+        <!-- ---------------------------------- -->
+        <!-- google font family -->
+       <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+                rel="stylesheet">
+
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css">
+       <link rel="stylesheet" href="~/css/site.css" asp-append-version="true"/>
+
+</head>
+<body>
+
+
+     <div class="sidebar " id="sidebar">
+                <div class="logo-Details mt-3">
+                        <img src="~/images/sideLogo.png" class="ml-2"/>
+                        <span class="logo-Name">Alpha </span>
+                </div>
+                <ul class="nav-links">
+                        <li>
+                                <a asp-area="" asp-controller="HomePage" asp-action="Index">
+                                        <i class="fa-solid fa-house-chimney"></i>   
+                                        <span class="link-name">Home</span>
+                                </a>
+                        </li>
+
+                        <li>
+                                <a asp-area="" asp-controller="Project" asp-action="Index">
+                                        <i class="fa-solid fa-suitcase"></i>
+                                        <span class="link-name">Projects</span>
+                                </a>
+                        </li>
+
+                        <li>
+                                <a  asp-area="" asp-controller="Home" asp-action="Index">
+                                        <i class="fa-solid fa-chart-gantt"></i>
+                                        <span class="link-name">Activities</span>
+                                </a>
+                        </li>
+                        <li>
+                            
+                                     <a  asp-area="" asp-controller="Resource" asp-action="Index">
+                                        <i class="fa-solid fa-recycle"></i>
+                                        <span class="link-name">Resources</span>
+                                     </a>
+                        </li>
+                          <li>
+                            
+                                     <a  asp-area="" asp-controller="Resource" asp-action="ResourceProfile">
+                                        <i class="fa-solid fa-chart-line"></i>
+                                        <span class="link-name">Resources Profile</span>
+                                     </a>
+                        </li>
+                        <li>
+                                <a  asp-area="" asp-controller="Resource" asp-action="CashReport">
+                                       <i class="fa-solid fa-money-bill-wave"></i>
+                                        <span class="link-name">Cash Flow</span>
+                                </a>
+                        </li>
+                        <li>
+                                <a  asp-area="" asp-controller="Crashes" asp-action="Index">
+                                        <i class="fa-solid fa-clock"></i>
+                                        <span class="link-name">Crashing</span>
+                                </a>
+                        </li>
+
+                        <li>
+                                <a  asp-area="" asp-controller="Home" asp-action="Calendar">
+                                        <i class="fa-solid fa-calendar-days"></i>
+                                        <span class="link-name">Calendar</span>
+                                </a>
+                        </li>
+
+                        <li>
+                                <a  asp-area="" asp-controller="File" asp-action="Index">
+                                        <i class="fa-solid fa-copy"></i>
+                                        <span class="link-name">Documentation</span>
+                                </a>
+                        </li>
+                            <li>
+                                <a  asp-area="" asp-controller="Issues" asp-action="Index">
+                                        <i class="fa-solid fa-copy"></i>
+                                        <span class="link-name">Issues</span>
+                                </a>
+                        </li>
+
+                       <li>
+                                <div class="icon-links">
+                                        <a href="#">
+                                                <i class="fa-solid fa-file"></i>
+                                                <span class="link-name">Files</span>
+                                        </a>
+                                        <i class='bx bxs-chevron-down arrow' id="arrow"></i>
+                                </div>
+                                <ul class="sub-menu " id="sub-menu">
+                                        <li><a href="#" class="sub-links">Import Files</a></li>
+                                        <li><a asp-area="" asp-controller="ExportExcel" asp-action="Index" class="sub-links">Export Files</a></li>
+                                        
+                                </ul>
+                        </li>
+
+                      
+                </ul>
+             
+     </div>
+
+       @RenderSection("PageSec" , required:false)
+
+
+
+
+    <div>
+        @RenderBody()
+    </div>
+    <script src="//cdn.fusioncharts.com/fusioncharts/latest/fusioncharts.js"></script>
+  <script src="//cdn.fusioncharts.com/fusioncharts/latest/fusioncharts.widgets.js"></script>   
+    <script src="//cdn.fusioncharts.com/fusioncharts/latest/themes/fusioncharts.theme.fusion.js"></script>
+    <srcipt src="~/lib/bootstrap/dist/js/bootstrap.bundle.min" asp-append-version="true"></srcipt>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+      <script>
+        function printDiv() {
+            var divContents = document.getElementById("GFG").innerHTML;
+            var a = window.open('', '', 'height=1000, width=1000');
+        
+            a.document.write('<html>');
+            a.document.write('<body > ');
+            a.document.write(divContents);
+            a.document.write('</body></html>');
+            a.document.close();
+            a.print();
+        }
+    </script>
+</body>
+</html>

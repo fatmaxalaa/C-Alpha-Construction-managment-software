@@ -1,0 +1,176 @@
+﻿@using Newtonsoft.Json
+
+@using Microsoft.AspNetCore.Mvc;
+
+@using Resources.Controllers
+<head>
+	<script src="//cdn.fusioncharts.com/fusioncharts/latest/fusioncharts.js"></script>
+  <script src="//cdn.fusioncharts.com/fusioncharts/latest/fusioncharts.widgets.js"></script>   
+    <script src="//cdn.fusioncharts.com/fusioncharts/latest/themes/fusioncharts.theme.fusion.js"></script>
+</head>
+@model List<double>
+@{
+    ViewData["Title"] = "Cash Flow Report";
+    Layout = "~/Views/Shared/_ AdminLayoutPage.cshtml";
+}
+@{
+    DateTime span1=ViewBag.span1;
+
+    //DateTime a = DateTime.Now;
+    List<DateTime> Dates = new List<DateTime>();
+    List<double> Accumlative = new List<double>();
+    List<double> MonthsAccumlative = new List<double>();
+    List<string> months = new List<string>();
+    List<int> monthcost = new List<int>();
+    double value=0.0d;
+    double valuemonth = 0.0d;
+    for(int i = 0; i < Model.Count; i++)
+    {
+        Dates.Add(span1);
+        Dates[i] = span1.AddDays(i);
+        if(!months.Contains(Dates[i].ToString("yyyy MMMM")))
+        {
+            months.Add(Dates[i].ToString("yyyy MMMM"));
+        }
+        for(int y = 0;y < i+1; y++)
+        { value += Model[y];///costs 
+
+        }
+        Accumlative.Add(value);
+        value = 0.0d;
+
+
+    }
+    for(int i =0; i < months.Count;i++){monthcost.Add(0);}
+    for(int i =0; i < months.Count; i++)
+    {
+        for(int y = 0; y < Dates.Count; y++)
+        {
+            if (Dates[y].ToString("yyyy MMMM") == months[i])
+            {
+                monthcost[i] += (int)Model[y];
+            }
+
+        }
+    }
+     for(int i = 0; i < monthcost.Count; i++)
+    {  for(int y = 0;y < i+1; y++)
+        { valuemonth += monthcost[y];///costs 
+
+        }
+        MonthsAccumlative.Add(valuemonth);
+        valuemonth = 0.0d;
+    }
+  
+ 
+    
+   
+ 
+}
+
+@section PageSec{
+    <script src="//cdn.fusioncharts.com/fusioncharts/latest/fusioncharts.js"></script>
+  <script src="//cdn.fusioncharts.com/fusioncharts/latest/fusioncharts.widgets.js"></script>   
+    <script src="//cdn.fusioncharts.com/fusioncharts/latest/themes/fusioncharts.theme.fusion.js"></script>
+    <section class="home-section" id="home">
+        <div class="home-content" id="GFG">
+                        
+                      
+                        <div >
+                            <button class="mt-3" onclick="printDiv()" style="border:none; background:none; position:relative; left:94% ">
+                                <img src="~/images/icons8-acrobat-67.png" style="width=50px; height:50px;"/>
+                            </button>
+                            
+                            @*<input class="btn btn-outline-secondary ml-3" value="PDF" onclick="printDiv()">*@
+                            <hr />
+                            <center><h1 class="projectName">Report of Monthly Cash flow</h1></center>
+                            <hr />
+       
+                                  <center>  <table class="mt-3 table table-striped text-center"  >
+                                               <thead class="thead-dark">
+                                              <tr>
+                                                  <th>Date</th>
+                                 @*               <th>Day</th>*@
+                                                <th>Costs Per this Month</th>
+                                                <th>Accumlative</th>
+                                              </tr>
+                                                </thead>
+                                            @for(int i=0;i<monthcost.Count;i++)
+                                            {   <tr>
+                                                <td>@months[i]</td>
+                                                    @*<td>Day @i</td>*@
+                                                    <td>@monthcost[i]</td>
+                                                    <td>@MonthsAccumlative[i]</td>
+           
+                                                </tr>
+                                            }
+                
+          
+            
+                                   </table></center>
+                                    @{string reciever =(string) ViewBag.L;
+                                       <div>
+                                       <div style="border-width:2px;border-color:black; text-align:center;" id="chartContainer">@Html.Raw(ViewData["Chart1"])</div>
+
+
+
+                                       <br>
+                                       <br>
+                                       <br>  
+                                       <hr>
+                                           
+                                          <center><center><h1 class="projectName">Report of Daily Cash flow</h1><hr /></center>
+                                       <table class="mt-3 table table-striped text-center"  >
+                                               <thead class="thead-dark">
+                                                         <tr>
+                                                             <th>Date</th>
+                                                           <th>Day</th>
+                                                           <th>Costs Per this Day</th>
+                                                           <th>Accumlative</th>
+                                                         </tr>
+                                                                                    </thead>
+                                                                                            @for(int i=0;i<Model.Count;i++)
+                                            {   <tr>
+                                                                                                <td>@Dates[i]</td>
+                                                                                                    <td>Day @i</td>
+                                                                                                    <td>@Model[i]</td>
+                                                                                                    <td>@Accumlative[i]</td>
+                                                           
+                                                                                                </tr>
+                                            }
+                                                                
+                                                          
+                                                            
+                                                                                   </table></center>
+                                                                                    
+
+                                                                        </div>
+                                                                          <div style="border-width:2px;border-color:black; margin-top:auto;margin-top: 55px; text-align:center; "  id="chartContainer2" >@Html.Raw(ViewData["Chart"])</div>
+                        }          
+                        
+    
+                      @* <button   style="position: absolute; top:120px;left:920px"type="button" class="btn btn-primary" onclick="print()">PRINT REPORT</button>*@
+                       
+
+                       </div>           
+                    <div>
+                         
+              </div>
+
+       
+          </div>
+                       
+    </section>
+       <script>
+        function printDiv() {
+            var divContents = document.getElementById("GFG").innerHTML;
+            var a = window.open('','', 'height=1000, width=1000');
+            a.document.write('<html>');
+            a.document.write('<body > ');
+            a.document.write(divContents);
+            a.document.write('</body></html>');
+            a.document.close();
+            a.print();
+        }
+    </script>
+}

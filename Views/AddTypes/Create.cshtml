@@ -1,0 +1,67 @@
+﻿@model Resources.Models.AddTypes
+
+@{
+    ViewData["Title"] = "create Type";
+    Layout = "~/Views/Shared/_ AdminLayoutPage.cshtml";
+    List<string> optionsnames = (List<string>)ViewBag.names;
+    List<string> TypeOptions = new List<string>() { "Mile Stone","Task"};
+
+}
+@section PageSec{
+
+    <section class="home-section" id="home">
+        <div id="GFG" class="home-content">
+<h1>Create</h1>
+
+<h4>Lag</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <span class="text-dark">Task Name</span>
+                
+               <select asp-for="TaskName" class="form-control" >   
+                @for(int item=0;item<optionsnames.Count; item++)
+                {
+                     <option value="@optionsnames[item]">@optionsnames[item]</option>
+          
+                }
+
+                </select>
+                <span asp-validation-for="TaskName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                   <span class="text-dark"> Type</span>
+                    
+                       
+                    <select asp-for="Type" class="form-control" > 
+                   @for(int item=0;item<TypeOptions.Count; item++)
+                   {
+                        <option value="@TypeOptions[item]">@TypeOptions[item]</option>
+
+                   }
+
+                   </select>
+                   <span asp-validation-for="Type" class="text-danger"></span>
+               </div>
+           
+            <div class="form-group">
+                 <a asp-action="Index"class="bttn"style="font-size:17px;"><i class="fa-solid fa-circle-left"></i></a>
+                <input type="submit" value="Create" class="bttn" />
+                
+            </div>
+        </form>
+    </div>
+</div>
+
+
+          </div>
+                       
+    </section>
+    
+
+
+}
+

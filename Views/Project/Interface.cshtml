@@ -1,0 +1,103 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+ @model Resources.Models.Project
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+
+<h4>Welcome to Our Project
+</h4>
+<br />
+<br />
+<h4> Choose what do you want to do</h4>
+
+ 
+  
+ @* <button  class="btn btn-outline-danger" onclick="addtodiv()">New Project</button>*@
+  <center><a style="width:250px;"asp-action="Index" class="btn btn-outline-danger">Open Project</a></center>
+  <br />
+ <center><button style="width:250px;"class="btn btn-outline-danger" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">New Project</button></center>
+
+<div style ="background-color:#34495E; width:350px; overflow:scroll;" class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    <center><h5 style="color:wheat" class="offcanvas-title" id="offcanvasRightLabel">Assign A New Project</h5></center>
+  <div class="offcanvas-header">
+      
+    
+     <form asp-action="AddOrEdit">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+              
+                <div class="form-group">
+                   <span style="color:wheat"><b>Name OF Project</b></span>
+                    <input asp-for="Name"style="width:300px;" class="form-control" />
+                    <span asp-validation-for="Name" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <span style="color:wheat"><b>Owner Name</b></span>
+                    <input asp-for="OwnerName" style="width:300px;" class="form-control" />
+                    <span asp-validation-for="OwnerName" class="text-danger"></span>
+                </div>
+                 <div class="form-group">
+                    <span style="color:wheat"><b>Manager Name</b></span>
+                    <input asp-for="ManagerName" style="width:300px;" class="form-control" />
+                    <span asp-validation-for="ManagerName" class="text-danger"></span>
+                </div>
+               
+             
+                <div class="form-group">
+                    <span style="color:wheat"><b>Location</b></span>
+                    
+                    <input asp-for="Location" style="width:300px;" class="form-control" />
+                    <span asp-validation-for="Location" class="text-danger"></span>
+                </div>
+                
+                 <div class="form-group">
+                    <span style="color:wheat"><b>Project Template</b>></span>
+                    <select style="width:300px;"class="form-control" asp-for="ProjectTemplate" >
+                         <option value="Construction">Construction</option>
+                         <option value="Administrative">Administrative</option>
+                        <option value="Design of Plans">Design of Plans</option>
+                     
+                    </select>
+                    <span asp-validation-for="ProjectTemplate" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <span style="color:wheat"><b>Start Date</b></span>
+                    <input asp-for="ProjectStartDate" style="width:300px;" class="form-control" />
+                    <span asp-validation-for="ProjectStartDate" class="text-danger"></span>
+                </div>
+                <form >
+                    <p style="color:wheat">Please select Access situation of the Project</p>
+                     <input type="radio" id="Public" name="fav_language" value="Public">
+                     <label style="color:wheat" for="Public">Public</label>
+                     <input type="radio" id="css" name="fav_language" value="Private">
+                     <label style="color:wheat" for="Private">Private</label>
+                 
+
+                </form>
+
+                 
+               <br />
+               
+                <div class="form-group">
+                  <center>
+                      
+                         <input  class="btn btn-primary"  type="submit" value="Save" />
+                   
+                   
+                    <a class="btn btn-danger" asp-action="Interface">Back</a>
+                  </center>
+                </div>
+             
+            </form>
+    
+  </div>
+  <div class="offcanvas-body">
+        
+  </div>
+</div>
+
+
+ <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+

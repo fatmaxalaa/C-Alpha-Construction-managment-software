@@ -1,0 +1,49 @@
+﻿@model Resources.Models.Issues
+
+@{
+    ViewData["Title"] = "Edit Issues";
+    Layout = "~/Views/Shared/_ AdminLayoutPage.cshtml";
+}
+
+@section PageSec{
+     <section class="home-section" id="home">
+         <div class="home-content" >
+
+            <div class="container p-3 mt-4 border "  style="box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;">
+            <h1  class="projectName mt-3">Edit <span>Issues</span></h1>
+        <hr />
+        <div class="row">
+            <div class="col-md-4">
+                <form asp-action="Edit">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <input type="hidden" asp-for="Id" />
+                    <div class="form-group">
+                        <label asp-for="IsusseName" class="control-label"></label>
+                        <input asp-for="IsusseName" class="form-control" />
+                        <span asp-validation-for="IsusseName" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="IssuerDescription" class="control-label"></label>
+                        <input asp-for="IssuerDescription" class="form-control" />
+                        <span asp-validation-for="IssuerDescription" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="IssueDate" class="control-label"></label>
+                        <input asp-for="IssueDate" class="form-control" />
+                        <span asp-validation-for="IssueDate" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" value="Save" class="bttn mx-2" />
+                        <a asp-action="Index"class="bttn mr-3 px-3"> <i class="fa-solid fa-circle-left"></i></a>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+<div>
+  
+
+</div>
+</div>
+</section>
+}

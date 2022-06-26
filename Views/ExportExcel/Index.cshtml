@@ -1,0 +1,66 @@
+﻿@using Resources.Models
+
+@model IEnumerable<Resources.Models.Task>
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_ AdminLayoutPage.cshtml";
+}
+
+
+
+@section PageSec{
+    <section class="home-section" id="home">
+        <div class="home-content">
+            <form method="post" asp-controller="ExportExcel" asp-action="ExportExcel">             
+                <button type="submit" class="btn btn-outline-primary mt-3 btn"><i class="fa-solid fa-file-export"></i> Export</button>
+            </form>
+            <table class="mt-3 table table-striped text-center"  >
+                 <thead class="thead-dark">
+                       <tr>
+                                <th>Id</th>
+                                <th>Text</th>
+                                <th>Start Date</th>
+                                <th>Duration</th>
+                                <th>End Date</th>
+                                <th>Progress</th>
+                                <th>ParentId</th>
+                                <th>Type</th>
+                                <th>SortOrder</th>
+                                <th>resources</th>
+                                <th>Total Float</th>
+                                <th>Late Start</th>
+                                <th>Late Finish</th>
+                                <th>Criticality</th>
+                        </tr>
+            
+                </thead>
+                @foreach (Resources.Models.Task t in Model)
+                {
+                    <tr>
+                        <td>@t.Id</td>
+                        <td>@t.Text</td>
+                        <td>@t.StartDate</td>
+                        <td>@t.Duration</td>
+                        <td>@t.EndDate</td>
+                        <td>@t.Progress</td>
+                        <td>@t.ParentId</td>                
+                        <td>@t.Type</td>
+                        <td>@t.SortOrder</td>
+                        <td>@t.resources</td>
+                        <td>@t.TotalFloat</td>
+                        <td>@t.LateStart</td>
+                        <td>@t.LateFinish</td>
+                        <td>@t.Criticality</td>
+                
+                    </tr>
+                }
+    </table>
+
+
+
+
+
+        </div>
+    </section>
+}

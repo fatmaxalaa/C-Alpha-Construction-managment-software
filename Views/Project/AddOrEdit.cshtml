@@ -1,0 +1,79 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@model Resources.Models.Project
+
+@{
+    ViewData["Title"] = "Create Project";
+     Layout = "~/Views/Shared/_ AdminLayoutPage.cshtml";
+}
+@section PageSec{
+<section class="home-section" id="home">
+   <div class="home-content">
+    <div class="container p-3 mt-4 border "  style="box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;">
+        <h1 class="projectName"> Create <span>Project</span></h1>
+
+    <div id="divc">
+        <div class="col-sm-12">
+            <hr />
+            <form asp-action="AddOrEdit">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                @if (@ViewBag.IsEdit)
+                {
+                    <input type="hidden" asp-for="ID" />
+                }
+                <div class="form-group">
+                    <label asp-for="Name" class="control-label"></label>
+                    <input asp-for="Name" class="form-control" />
+                    <span asp-validation-for="Name" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Location" class="control-label"></label>
+                    <input asp-for="Location" class="form-control" />
+                    <span asp-validation-for="Location" class="text-danger"></span>
+                </div>
+                  <div class="form-group">
+                    <label asp-for="ManagerName" class="control-label"></label>
+                    <input asp-for="ManagerName" class="form-control" />
+                    <span asp-validation-for="ManagerName" class="text-danger"></span>
+                </div>
+                 <div class="form-group">
+                    <label asp-for="OwnerName" class="control-label"></label>
+                    <input asp-for="OwnerName" class="form-control" />
+                    <span asp-validation-for="OwnerName" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="ProjectStartDate" class="control-label"></label>
+                    <input asp-for="ProjectStartDate" class="form-control" />
+                    <span asp-validation-for="ProjectStartDate" class="text-danger"></span>
+                </div>
+           @*       <div class="form-group">
+                    <label asp-for="ProjectDuration" class="control-label"></label>
+                    <input asp-for="ProjectDuration" class="form-control" />
+                    <span asp-validation-for="ProjectDuration" class="text-danger"></span>
+                </div>*@
+                    @*<div class="form-group">
+                    <label asp-for="ProjectEndDate" class="control-label"></label>
+                    <input asp-for="ProjectEndDate" class="form-control" />
+                    <span asp-validation-for="ProjectEndDate" class="text-danger"></span>
+                </div>
+                *@
+
+               
+                <div class="form-group">
+                    
+                    @*<a class="btn btn-danger" asp-action="Index">Back</a>*@
+                    <a asp-action="Index" class="bttn" style="font-size:17px;">Back<i class="fa-solid fa-circle-left"></i></a>
+                    <input class="bttn"  type="submit" value="Save" />
+                </div>
+             
+            </form>
+       
+        </div>
+    </div>
+</div>
+</div>
+</section>
+}

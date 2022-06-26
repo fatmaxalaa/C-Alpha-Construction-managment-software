@@ -1,0 +1,64 @@
+﻿@model Resources.Models.Crashing
+
+@{
+    ViewData["Title"] = "Delete";
+     Layout = "~/Views/Shared/_ AdminLayoutPage.cshtml";
+}
+@section PageSec{
+     <section class="home-section" id="home">
+     <div class="home-content">
+
+<div class="container p-3 my-3 border w-75 ml-2" style="box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;">
+    <h2 class="projectName " style="color:crimson">Delete</h2>
+     </hr>
+    
+    <dl class="row  mt-4">
+
+         <dt class = "col-sm-3 mt-2">
+            @Html.DisplayNameFor(model => model.TaskName)
+        </dt>
+        <dd class = "col-sm-9 mt-2">
+            @Html.DisplayFor(model => model.TaskName)
+        </dd>
+
+        <dt class = "col-sm-3 mt-2">
+            @Html.DisplayNameFor(model => model.OptimisticDuration)
+        </dt>
+        <dd class = "col-sm-9 mt-2">
+            @Html.DisplayFor(model => model.OptimisticDuration)
+        </dd>
+        <dt class = "col-sm-3 mt-2">
+            @Html.DisplayNameFor(model => model.MostLikelyDuration)
+        </dt>
+        <dd class = "col-sm-9 mt-2">
+            @Html.DisplayFor(model => model.MostLikelyDuration)
+        </dd>
+        <dt class = "col-sm-3 mt-2">
+            @Html.DisplayNameFor(model => model.PessimesticDuration)
+        </dt>
+        <dd class = "col-sm-9 mt-2">
+            @Html.DisplayFor(model => model.PessimesticDuration)
+        </dd>
+        <dt class = "col-sm-3 mt-2">
+            @Html.DisplayNameFor(model => model.ExpectedTime)
+        </dt>
+        <dd class = "col-sm-9 mt-2">
+            @Html.DisplayFor(model => model.ExpectedTime)
+        </dd>
+        <dt class = "col-sm-3 mt-2">
+            @Html.DisplayNameFor(model => model.TaskId)
+        </dt>
+        <dd class = "col-sm-9 mt-2">
+            @Html.DisplayFor(model => model.TaskId)
+        </dd>
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="Id" />
+        <input type="submit" value="Delete" class="bttnDel px-3" /> 
+        <a asp-action="Index"  class="bttn px-3">Back to List</a>
+    </form>
+</div>
+</div>
+</section>
+}

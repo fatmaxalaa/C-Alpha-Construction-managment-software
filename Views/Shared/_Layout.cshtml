@@ -1,0 +1,166 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Resources</title>
+     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+     
+         <!-- Boxicons CDN Link   -->
+        <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
+        <!-- ---------------------------------- -->
+        <!-- google font family -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+                rel="stylesheet">
+
+        <link rel="stylesheet" href="~/css/site.css" />
+</head>
+<body>
+   
+ @*    <div class="sidebar " id="sidebar">
+                <div class="logo-Details">
+                        <i class='bx bxs-landscape'></i>
+                        <span class="logo-Name">MyLogo</span>
+                </div>
+                <ul class="nav-links">
+                        <li>
+                                <a href="#">
+                                        <i class='bx bx-grid-alt'></i>
+                                        <span class="link-name">Home</span>
+                                </a>
+                        </li>
+
+                        <li>
+                                <a href="#">
+                                        <i class='bx bx-grid-alt'></i>
+                                        <span class="link-name">Projects</span>
+                                </a>
+                        </li>
+
+                        <li>
+                                <a href="#">
+                                        <i class='bx bx-grid-alt'></i>
+                                        <span class="link-name">Activities</span>
+                                </a>
+                        </li>
+                        <li>
+                                <a href="#">
+                                        <i class='bx bx-grid-alt'></i>
+                                        <span class="link-name">Resources</span>
+                                </a>
+                        </li>
+                        <li>
+                                <a href="#">
+                                        <i class='bx bx-grid-alt'></i>
+                                        <span class="link-name">Cash Flow</span>
+                                </a>
+                        </li>
+                        <li>
+                                <a href="#">
+                                        <i class='bx bx-grid-alt'></i>
+                                        <span class="link-name">Crashing</span>
+                                </a>
+                        </li>
+
+                        <li>
+                                <a href="#">
+                                        <i class='bx bx-grid-alt'></i>
+                                        <span class="link-name">Calendar</span>
+                                </a>
+                        </li>
+
+                        <li>
+                                <a href="#">
+                                        <i class='bx bx-grid-alt'></i>
+                                        <span class="link-name">Documentation</span>
+                                </a>
+                        </li>
+
+                       <li>
+                                <div class="icon-links">
+                                        <a href="#">
+                                                <i class='bx bx-collection'></i>
+                                                <span class="link-name">Files</span>
+                                        </a>
+                                        <i class='bx bxs-chevron-down arrow' id="arrow"></i>
+                                </div>
+                                <ul class="sub-menu " id="sub-menu">
+                                        <li><a href="#" class="sub-links">Import Files</a></li>
+                                        <li><a href="#" class="sub-links">Export Files</a></li>
+                                        <!-- <li><a href="#" class="sub-links">Card Design</a></li> -->
+                                </ul>
+                        </li>
+                        <!-- <li>
+                                <div class="icon-links">
+                                        <a href="#">
+                                                <i class='bx bx-book-alt'></i>
+                                                <span class="link-name">Posts</span>
+                                        </a>
+                                        <i class='bx bxs-chevron-down arrow' id="arrow2"></i>
+                                </div>
+                                <ul class="sub-menu" id="sub-menu2">
+                                        <li><a href="#" class="sub-links">HTML & CSS</a></li>
+                                        <li><a href="#" class="sub-links">JavaScript</a></li>
+                                        <li><a href="#" class="sub-links">PHP & MySQL</a></li>
+                                </ul>
+                        </li> -->
+                    
+                      
+                        <!-- <li>
+                                <div class="icon-links">
+                                        <a href="#">
+                                                <i class='bx bx-plug'></i>
+                                                <span class="link-name">Plugins</span>
+                                        </a>
+                                        <i class='bx bxs-chevron-down arrow' id="arrow3"></i>
+                                </div>
+                                <ul class="sub-menu" id="sub-menu3">
+                                        <li><a href="#" class="sub-links">Web Design</a></li>
+                                        <li><a href="#" class="sub-links">Login Form</a></li>
+                                        <li><a href="#" class="sub-links">Card Design</a></li>
+                                </ul>
+                        </li> -->
+                      
+                </ul>
+                <div class="profile-details ">
+                        <div class="profile-content">
+                                <img src="img/young-beautiful-woman-pink-warm-sweater-natural-look-smiling-portrait-isolated-long-hair.jpg" id="img">
+                        </div>
+                        <div class="name-job">
+                                <div class="profile-name">Sara Johns</div>
+                                <div class="job"> Web Designer</div>
+                        </div>
+                        <i class='bx bx-log-out'></i>
+                </div>
+                <section class="home-section" id="home">
+                        <div class="home-content">
+                                <!-- <i class='bx bx-menu' id="menu"></i> -->
+                                <span class="text">Drop Down SideBar</span>
+                        </div>
+                </section>
+     </div>*@
+   
+
+
+
+
+
+
+
+
+
+    <div class="container-fluid">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+ 
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

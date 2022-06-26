@@ -1,0 +1,52 @@
+﻿@model Resources.Models.Lag
+
+@{
+    ViewData["Title"] = "create Lag";
+    Layout = "~/Views/Shared/_ AdminLayoutPage.cshtml";
+   
+}
+@section PageSec{
+
+    <section class="home-section" id="home">
+        <div id="GFG" class="home-content" >
+    
+
+                        <h1 style="margin-top:5px; color:crimson;">Details</h1>
+
+                        <div>
+                            <h4>Lag</h4>
+                            <hr />
+                            <dl class="row">
+                                <dt class = "col-sm-2">
+                                    @Html.DisplayNameFor(model => model.SourceName)
+                                </dt>
+                                <dd class = "col-sm-10">
+                                    @Html.DisplayFor(model => model.SourceName)
+                                </dd>
+                                <dt class = "col-sm-2">
+                                    @Html.DisplayNameFor(model => model.TargetName)
+                                </dt>
+                                <dd class = "col-sm-10">
+                                    @Html.DisplayFor(model => model.TargetName)
+                                </dd>
+                                <dt class = "col-sm-2">
+                                    @Html.DisplayNameFor(model => model.LagValue)
+                                </dt>
+                                <dd class = "col-sm-10">
+                                    @Html.DisplayFor(model => model.LagValue)
+                                </dd>
+                            </dl>
+                        </div>
+                        <div>
+                             <a asp-action="Index"class="bttn" style="font-size:16px;"><i class="fa-solid fa-circle-left"></i></a>
+                            <a asp-action="Edit" asp-route-id="@Model.Id" class="bttn">Edit</a> 
+                           
+                        </div>
+                        
+        </div>
+                       
+    </section>
+    
+
+
+}

@@ -1,0 +1,62 @@
+﻿
+@model IEnumerable< Resources.Models.Crashing>
+
+@{
+    ViewData["Title"]= "Probability";
+    Layout = "~/Views/Shared/_ AdminLayoutPage.cshtml";
+   
+}
+@section PageSec{
+     <section class="home-section" id="home">
+     <div class="home-content">
+
+
+<div class="col-4 " style="margin-top:15px;">
+    <h3> Probability</h3>
+    <hr />
+    <div class=" card">
+    <div>
+    @*<label asp-for="@Html.DisplayFor(Model=>Model.Select(e=>e.Id))">Subject:</label>
+    <input type="text" asp-for="@Html.DisplayFor(Model=>Model.Select(e=>e.Id))" />
+    <span asp-validation-for="@Html.DisplayFor(Model=>Model.Select(e=>e.Id))"></span>*@
+
+      @*  <p>PLease put The required time (Ts)</p>
+     
+       <form action="" method="post">*@
+        @*      <a>
+                <input type="number" name="RequiredTime" placeholder="Required Time(Ts)" asp-action="@ViewBag.RequiredTime"/>
+              </a>*@
+    
+     
+             <table class="mt-3 table table-striped text-center"  >
+                  <thead class="thead-dark">
+                        <tr>
+                              <th>
+                                 @Html.DisplayNameFor(model => model.Probability)
+                                
+                              </th>
+                         </tr>
+                  </thead>
+                     <tbody>
+                    @foreach (var item in Model) {
+                         <tr>
+                            <td class="DisplayLast">
+                                @Html.DisplayFor(modelItem => item.Probability)%
+                             </td>
+                         </tr>
+}
+                    </tbody>
+             </table>
+
+       @*</form>*@
+   
+    </div>
+</div>
+   @* <a>Probability of finish the project in @ViewBag.ts is equal  @ViewBag.Prob%  </a>*@
+</div>
+</div>
+</section>
+}
+
+
+

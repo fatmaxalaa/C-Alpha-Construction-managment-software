@@ -1,0 +1,57 @@
+﻿@model IEnumerable<Resources.Models.Issues>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_ AdminLayoutPage.cshtml";
+}
+@section PageSec{
+     <section class="home-section" id="home">
+
+<div class="home-content">
+
+    <div class="mt-4">
+   
+         <a asp-action="Create" asp-controller="Issues" class="bttn">Create<i class="fa-light fa-plus"style="font-size:25px; "></i></a>
+
+    </div>
+   
+
+<table class="mt-5 table table-striped text-center ">
+    <thead class="thead-dark">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.IsusseName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IssuerDescription)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IssueDate)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.IsusseName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IssuerDescription)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IssueDate)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id"><i class="fa-solid fa-pen-to-square text-primary" style="font-size:20px;"></i></a> 
+                <a asp-action="Details" asp-route-id="@item.Id"><i class="fa-solid fa-circle-info text-info ml-2" style="font-size:20px;"></i></a> 
+                <a asp-action="Delete" asp-route-id="@item.Id"><i class="fa-solid fa-trash-can text-danger ml-2 " style="font-size:20px;"></i></a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+</div>
+</section>
+}

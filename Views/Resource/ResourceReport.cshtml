@@ -1,0 +1,24 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@using Newtonsoft.Json
+
+@using Microsoft.AspNetCore.Mvc;
+@using Resources.Models;
+@using Resources.Controllers
+<head>
+	<script src="//cdn.fusioncharts.com/fusioncharts/latest/fusioncharts.js"></script>
+  <script src="//cdn.fusioncharts.com/fusioncharts/latest/fusioncharts.widgets.js"></script>   
+    <script src="//cdn.fusioncharts.com/fusioncharts/latest/themes/fusioncharts.theme.fusion.js"></script>
+</head>
+<div> 
+    <h3 style="text-align:center;">The Resource Usage Profie For @ViewBag.resname</h3>
+</div>
+<div>
+    @Html.DropDownList("options",null,new{onchange="document.location.href='/Activities/Resourcereport?Name='+this.value;"})
+</div>
+<div>
+    <div style="border-width:2px;border-color:black;text-align:center;" id="chartContainer">@Html.Raw(ViewData["Chart2"])</div>
+</div>

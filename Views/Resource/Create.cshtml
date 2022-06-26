@@ -1,0 +1,82 @@
+﻿@model Resources.Models.Resource
+
+@{
+    ViewData["Title"] = "Create Resource";
+     Layout = "~/Views/Shared/_ AdminLayoutPage.cshtml";
+}
+   @{ List<string> options = (List<string>)ViewBag.actsoptions;
+}
+
+@section PageSec{
+     <section class="home-section" id="home">
+      <div class="home-content" >
+          <div class="container p-3 mt-4 border "  style="box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;">
+            <h1  class="projectName mt-3">Create <span>Resource</span></h1>
+
+
+        <hr />
+        <div class="row">
+            <div class="col-md-4">
+                <form asp-action="Create">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <div class="form-group">
+                        <label asp-for="Title" class="control-label"></label>
+                        <input asp-for="Title" class="form-control" />
+                        <span asp-validation-for="Title" class="text-danger"></span>
+                    </div>
+                   <div class="form-group">
+                        <label asp-for="ResourceType" class="control-label"></label>
+                        <select asp-for="ResourceType" class="form-control"
+                            id="Id" name="ResourceType">
+                              <option> ------------ ResourceType ------------ </option> 
+                                <option>Labor</option> 
+                          <option>Non_Labor</option>
+                  <option>Material</option> 
+
+                        </select>
+                    <span asp-validation-for="ResourceType" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="CostPerDay" class="control-label"></label>
+                        <input asp-for="CostPerDay" class="form-control" />
+                        <span asp-validation-for="CostPerDay" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="UnitsPerDay" class="control-label"></label>
+                        <input asp-for="UnitsPerDay" class="form-control" />
+                        <span asp-validation-for="UnitsPerDay" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Duration" class="control-label"></label>
+                        <input asp-for="Duration" class="form-control" />
+                        <span asp-validation-for="Duration" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="TaskName " class="control-label"></label>
+                                    <select asp-for="TaskName" class="form-control" />  
+                                    <option> ------------TaskName------------ </option>
+                        @foreach(var item in options)
+                        {
+                             <option value="@item">@item</option>
+                    
+                        }
+
+                        </select>
+                        <span asp-validation-for="TaskName" class="text-danger"></span>
+                    </div>
+             
+           <div class="mt-3 mb-3"> 
+                <a asp-action="Index"class="bttn mr-3 px-3"> <i class="fa-solid fa-circle-left"></i> </a>
+                <input class="bttn"  type="submit" value="Save" />     
+            </div>
+                
+        </form>
+    </div>
+</div>
+
+
+</div>
+
+</div>
+</section>
+}

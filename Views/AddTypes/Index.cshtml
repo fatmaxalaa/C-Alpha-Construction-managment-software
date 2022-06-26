@@ -1,0 +1,54 @@
+﻿@model IEnumerable<Resources.Models.AddTypes>
+
+@{
+    ViewData["Title"] = "create Type";
+    Layout = "~/Views/Shared/_ AdminLayoutPage.cshtml";
+   
+}
+@section PageSec{
+
+    <section class="home-section" id="home">
+        <div id="GFG" class="home-content" style="margin-top:15px;display:block; ">
+
+                    <p>
+                        <a asp-action="Create" class="bttn">Create New</a>
+                    </p>
+                    <table class="mt-3 table table-striped text-center"  >
+                         <thead class="thead-dark">
+                            <tr>
+                               
+                                <th>
+                                    @Html.DisplayNameFor(model => model.TaskName)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.Type)
+                                </th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                    @foreach (var item in Model) {
+                            <tr>
+                               
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.TaskName)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Type)
+                                </td>
+                                <td>
+                                    <a asp-action="Edit" asp-route-id="@item.Id"><i class="fa-solid fa-pen-to-square text-primary" style="font-size:20px;"></i> </a> 
+                                    <a asp-action="Details" asp-route-id="@item.Id"><i class="fa-solid fa-circle-info text-info ml-2" style="font-size:20px;"></i> </a> 
+                                    <a asp-action="Delete" asp-route-id="@item.Id"><i class="fa-solid fa-trash-can text-danger ml-2 " style="font-size:20px;"></i></a>
+                                </td>
+                            </tr>
+                    }
+                        </tbody>
+                    </table>
+ </div>
+                       
+    </section>
+    
+
+
+}

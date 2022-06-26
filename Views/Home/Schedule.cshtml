@@ -1,0 +1,89 @@
+﻿@model IEnumerable<Resources.Models.Task>
+
+@{
+    ViewData["Title"] = "Index";
+       Layout = "~/Views/Shared/_ AdminLayoutPage.cshtml";
+}
+
+<h1>Schedule</h1>
+@section PageSec{
+    <section class="home-section" id="home">
+        <div style="height:100%;display:block; width:100%;" class="home-content">
+             <a asp-controller="Home" asp-action="CriticalPath"  type="button" class="bttn" style="margin-left:5px; ">CriticalPath</a>
+               
+             @*   <p>
+                    <a asp-action="Create">Create New</a>
+                </p>*@
+                <table class="mt-5 ml-2 mr-2 table table-striped text-center " >
+                     <thead class="thead-dark">
+                        <tr >
+                            <th >
+                                @Html.DisplayNameFor(model => model.Text)
+                            </th>
+                            <th >
+                                @Html.DisplayNameFor(model => model.StartDate)
+                            </th>
+                            <th >
+                                @Html.DisplayNameFor(model => model.Duration)
+                            </th>
+                            <th >
+                                @Html.DisplayNameFor(model => model.EndDate)
+                            </th>
+                            <th >
+                                @Html.DisplayNameFor(model => model.TotalFloat)
+                            </th>
+                            <th >
+                                @Html.DisplayNameFor(model => model.LateStart)
+                            </th>
+                             <th >
+                                @Html.DisplayNameFor(model => model.LateFinish)
+                            </th>
+                             <th >
+                                @Html.DisplayNameFor(model => model.Criticality)
+                            </th>
+                     
+                        </tr>
+                    </thead>
+                    <tbody>
+                @foreach (var item in Model) {
+                        <tr >
+                            <td >
+                                @Html.DisplayFor(modelItem => item.Text)
+                            </td>
+                            <td >
+                                @Html.DisplayFor(modelItem => item.StartDate)
+                            </td>
+                            <td >
+                                @Html.DisplayFor(modelItem => item.Duration)
+                            </td>
+                            <td >
+                                @Html.DisplayFor(modelItem => item.EndDate)
+                            </td>
+                             <td >
+                                @Html.DisplayFor(modelItem => item.TotalFloat)
+                            </td>
+                             <td >
+
+                                @Html.DisplayFor(modelItem => item.LateStart)
+                            </td>
+                             <td >
+                                @Html.DisplayFor(modelItem => item.LateFinish)
+                            </td>
+                              <td >
+                                @Html.DisplayFor(modelItem => item.Criticality)
+                            </td>
+
+                         @*   <td style="width:70%">
+                                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                                
+                            </td>*@
+                        </tr>
+                }
+                    </tbody>
+                </table>
+       
+    </div>
+</section>
+}

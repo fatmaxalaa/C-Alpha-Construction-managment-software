@@ -1,0 +1,60 @@
+﻿@using Resources.Models
+@*@using t = System.Threading.Tasks; *@
+
+@model IEnumerable<Resources.Models.Task>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_ AdminLayoutPage.cshtml";
+}
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css">
+
+
+
+
+
+
+@section PageSec{
+    <section class="home-section text-dark" id="home">
+        <div class="home-content">
+            <form method="post" asp-controller="Task" asp-action="ExportExcel">
+                <button type="submit" class="btn btn-outline-primary mt-3"><i class="fa-solid fa-file-export"></i> Export</button>
+          
+                    
+            </form>
+            
+           
+            <table class="table table-striped mt-5">
+                    <thead class=" table-primary">
+                       <tr>
+                                <th>Id</th>
+                                <th>Name</th>
+                                <th>Start Date</th>
+                                <th>Duration</th>
+                                <th>Progress</th>
+                                <th>Parent</th>
+                                <th>Target</th>
+                                <th>Type</th>
+                        </tr>
+            
+                    </thead>
+                    @*@foreach (Task tasks in Model)
+                    {
+                        <tr>
+                            <td>@tasks.id</td>
+                            <td>@tasks.Text</td>
+                            <td>@tasks.start_date</td>
+                            <td>@tasks.duration</td>
+                            <td>@tasks.progress</td>
+                            <td>@tasks.parent</td>
+                            <td>@tasks.target</td>
+                            <td>@tasks.type</td>
+                
+                        </tr>
+                    }*@
+            </table>
+
+</div>
+</section>
+}

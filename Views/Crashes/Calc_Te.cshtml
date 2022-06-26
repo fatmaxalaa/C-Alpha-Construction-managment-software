@@ -1,0 +1,93 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+@model IEnumerable< Resources.Models.Crashing>
+
+@{
+    ViewData["Title"]= "Calc_Te";
+      Layout = "~/Views/Shared/_ AdminLayoutPage.cshtml";
+}
+@section PageSec{
+     <section class="home-section" id="home">
+       <div class="home-content" >
+
+<div class="col-4" >
+
+<p  style="margin-top:20px;">
+    <a asp-action="Variance"  class="bttn">Probability%(Variance) </a>
+</p>
+
+
+    <table class="mt-5 table table-striped text-center " >
+        <thead class="thead-dark">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.TaskName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.OptimisticDuration)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MostLikelyDuration)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PessimesticDuration)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ExpectedTime)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TaskId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Te)
+            </th>
+        
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.TaskName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.OptimisticDuration)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MostLikelyDuration)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PessimesticDuration)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ExpectedTime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TaskId)
+            </td>
+           <td class="DisplayLast">
+                     @Html.DisplayFor(modelItem => item.Te)
+                     
+            </td>
+             
+           
+                @*<td>@Model.Sum(x => x.ExpectedTime)</td>*@
+               @* <td>@Model.Sum(s => s.Te)</td>*@
+          @*  <td>*@
+               @* <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>*@
+            @*</td>*@
+        </tr>
+}
+    </tbody>
+</table>
+</div>
+</div>
+</section>
+}

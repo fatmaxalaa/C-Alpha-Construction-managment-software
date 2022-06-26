@@ -1,0 +1,73 @@
+﻿@model Resources.Models.Resource
+
+@{
+    ViewData["Title"] = "Delete Resource";
+    Layout = "~/Views/Shared/_ AdminLayoutPage.cshtml";
+}
+
+
+
+@section PageSec{
+    <section class="home-section" id="home">
+        <div class="home-content">
+
+<div class="container p-3 my-3 border w-75 ml-2" style="box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;">
+    <h2 class="projectName " style="color:crimson">Delete <span style="color:#333">Resource</span></h2>
+    <hr />
+        <dl class="row">
+            <dt class = "col-sm-2 mt-3">
+                @Html.DisplayNameFor(model => model.Title)
+            </dt>
+            <dd class = "col-sm-10 mt-3">
+                @Html.DisplayFor(model => model.Title)
+            </dd>
+            <dt class = "col-sm-2 mt-3">
+                @Html.DisplayNameFor(model => model.ResourceType)
+            </dt>
+            <dd class = "col-sm-10 mt-3">
+                @Html.DisplayFor(model => model.ResourceType)
+            </dd>
+            <dt class = "col-sm-2 mt-3">
+                @Html.DisplayNameFor(model => model.CostPerDay)
+            </dt>
+            <dd class = "col-sm-10 mt-3">
+                @Html.DisplayFor(model => model.CostPerDay)
+            </dd>
+              <dt class = "col-sm-2 mt-3">
+                @Html.DisplayNameFor(model => model.UnitsPerDay)
+            </dt>
+            <dd class = "col-sm-10 mt-3">
+                @Html.DisplayFor(model => model.UnitsPerDay)
+            </dd>
+            <dt class = "col-sm-2 mt-3">
+                @Html.DisplayNameFor(model => model.Duration )
+            </dt>
+            <dd class = "col-sm-10 mt-3">
+                @Html.DisplayFor(model => model.Duration )
+            </dd>
+            <dt class = "col-sm-2 mt-3">
+                @Html.DisplayNameFor(model => model.TotalCost)
+            </dt>
+            <dd class = "col-sm-10 mt-3">
+                @Html.DisplayFor(model => model.TotalCost)
+            </dd>
+        </dl>
+    
+       @* <form asp-action="Delete">
+            <input type="hidden" asp-for="ResourceId" />
+            <input type="submit" value="Delete" class="btn btn-outline-danger" /> 
+            <a asp-action="Index" class="btn btn-outline-secondary ml-3">Back to List</a>
+        </form>*@
+         <form asp-action="Delete">
+                <input type="hidden" asp-for="ResourceId" />
+                <input class="bttn px-3"  type="submit" value="Yes" />
+                <a class="bttnDel px-3" asp-action="Index">No</a>
+        </form>
+    </div>
+    </div>
+    </section>
+}
+
+
+
+

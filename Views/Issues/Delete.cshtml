@@ -1,0 +1,44 @@
+﻿@model Resources.Models.Issues
+
+@{
+    ViewData["Title"] = "Delete";
+    Layout = "~/Views/Shared/_ AdminLayoutPage.cshtml";
+}
+@section PageSec{
+    <section class="home-section" id="home">
+        <div class="home-content">
+
+        <div class="container p-3 my-3 border w-75 ml-2" style="box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;">
+            <h2 class="projectName " style="color:crimson">Delete <span style="color:#333">Issue</span></h2>
+            <hr />
+    <dl class="row">
+        <dt class = "col-sm-2 mt-3">
+            @Html.DisplayNameFor(model => model.IsusseName)
+        </dt>
+        <dd class = "col-sm-10 mt-3">
+            @Html.DisplayFor(model => model.IsusseName)
+        </dd>
+        <dt class = "col-sm-2 mt-3">
+            @Html.DisplayNameFor(model => model.IssuerDescription)
+        </dt>
+        <dd class = "col-sm-10 mt-3">
+            @Html.DisplayFor(model => model.IssuerDescription)
+        </dd>
+        <dt class = "col-sm-2 mt-3">
+            @Html.DisplayNameFor(model => model.IssueDate)
+        </dt>
+        <dd class = "col-sm-10 mt-3">
+            @Html.DisplayFor(model => model.IssueDate)
+        </dd>
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="Id" />
+        <input type="submit" value="Delete" class=" bttnDel px-3 mr-2"/> 
+        <a asp-action="Index" class="bttn px-3">Back to List</a>
+    </form>
+</div>
+
+</div>
+</section>
+}

@@ -1,0 +1,441 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css">
+    <title>@ViewData["Title"] - FinaleProject</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+
+</head>
+<body>
+
+ <!-- navBar -->
+    <section class="sticky-top navShadow">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container">
+
+                <!-- <a class="navbar-brand" href="#">Navbar w/ text</a> -->
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false"
+                        aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse " id="navbarText">
+                    <div class="container-fluid">
+                        <a class="navbar-brand m-1" href="#">
+                            <img src="~/images/sideLogo.png" alt="Logo" width=70px  height=70px
+                                 class="d-inline-block align-text-top">
+                           
+                        </a>
+                        
+                      
+                    </div>
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item m-1">
+                            <a class="nav-link  nav-text" aria-current="page"
+                               href="#Home">Home</a>
+                        </li>
+                        <li class="nav-item m-1">
+                            <a class="nav-link" href="#Features">Features</a>
+                        </li>
+                        <li class="nav-item m-1">
+                            <a class="nav-link" href="#Details">Details</a>
+                        </li>
+                        <li class="nav-item m-1">
+                            <a class="nav-link" href="#Team">Team </a>
+                        </li>
+                        <li class="nav-item m-1">
+                            <a class="nav-link" href="#Video">Video</a>
+                        </li>
+                       @* <li class="nav-item m-1">
+                            <button type="button"
+                                    class="btn btn-outline-primary ps-5 pe-5 me-2 ms-2">
+                                LogIn
+                            </button>
+                        </li>
+                        <li class="nav-item m-1">
+                            <button type="button"
+                                    class="btn btn-outline-primary ps-5 pe-5  me-2 ms-2 ">
+                                Register
+                            </button>
+                        </li>*@
+
+                    </ul>
+                    @Html.Partial("_LoginPartial")
+                </div>
+            </div>
+        </nav>
+    </section>
+    <!-- End of navBar -->
+    <!-- Home -->
+    <section class="home container " id="Home">
+        <div class="row">
+            <div class=" col-md-6">
+                <div class="homeText ">
+                    <h1 class="mt-5 homeHeader">
+                        Lorem ipsum dolo 
+                    </h1>
+                    <p class="mt-4 homeParag">
+                        Sed do eiusmod tempor incididunt ut labore et do <br>
+                        lore magna aliqua amet commodo nulla
+                        facilisi <br />
+                        lore magna aliqua amet commodo nulla
+                        facilisi
+                    </p>
+                </div>
+            </div>
+            <div class=" col-md-6">
+                <div class="homeImage">
+                    <img src="../images/hero.png" class=" img-fluid homeImg " alt="homeImage">
+                </div>
+            </div>
+
+        </div>
+    </section>
+    <!-- End of Home -->
+    <!-- Features -->
+    <section class="features container text-center" id="Features">
+        <div>
+            <h1>Tellus cras adipiscing enim eu</h1>
+        </div>
+
+        <div>
+            <img src="~/images/features.jpg" alt="features" class="mt-5 img-fluid">
+        </div>
+
+        <div class="row mt-5">
+            <div class="col-md-4">
+                <img src="../images/feature.png" class=" mt-5" alt="..." width="200px" height="150px">
+                <p class=" fw-bold mt-3 fs-5 featureParag">Tellus cras</p>
+                <p class="text-secondary">
+                    Tellus cras adipiscing enim eu <br> Tellus cras adipiscing
+                    enim eu
+                </p>
+            </div>
+            <div class="col-md-4">
+                <img src="../images/feature.png" class="mt-5 " alt="..." width="200px" height="150px">
+                <p class=" fw-bold mt-3 fs-5 featureParag">Tellus cras</p>
+                <p class="text-secondary">
+                    Tellus cras adipiscing enim eu <br> Tellus cras adipiscing
+                    enim eu
+                </p>
+            </div>
+            <div class="col-md-3">
+                <img src="../images/feature.png" class=" mt-5" alt="..." width="200px" height="150px">
+                <p class=" fw-bold mt-3 fs-5 featureParag">Tellus cras</p>
+                <p class="text-secondary">
+                    Tellus cras adipiscing enim eu <br> Tellus cras adipiscing
+                    enim eu
+                </p>
+            </div>
+        </div>
+    </section>
+    <!-- End of Features -->
+    <!-- Details -->
+    <section class="details container" id="Details">
+        <div class="detailsSpacing">
+            <div class="row">
+                <div class=" col-md-6">
+                    <h1 class=" detailsHeader">
+                        Senectus et netus et male <br> su ada fames ac turpis
+                    </h1>
+                    <p class="mt-5">
+                        Mi sit ameti diam vel quam elementum pulvinar etiam non. <br>
+                        Diam vulputate ut pharetra
+                        sit amet. Nulla at volutpat diam <br> ut
+                        venenatis tellus. Facilisi etiam dignissim diam quis. Amet <br> commodo
+                        nulla
+                        facilisi nullam venenatis cras sed felis
+                    </p>
+                </div>
+
+                <div class="col-md-6">
+                    <img src="../images/details-1.png" alt="details">
+                </div>
+            </div>
+        </div>
+
+        <div class="detailsSpacing">
+            <div class="row">
+                <div class="col-md-6">
+                    <img src="../images/details-2.png" alt="details">
+                </div>
+                <div class=" col-md-6">
+                    <h1 class=" detailsHeader">
+                        Senectus et netus et male <br> su ada fames ac turpis
+                    </h1>
+                    <p class="mt-5">
+                        Mi sit ameti diam vel quam elementum pulvinar etiam non. <br>
+                        Diam vulputate ut
+                        pharetra
+                        sit amet. Nulla at volutpat diam <br> ut
+                        venenatis tellus. Facilisi etiam dignissim diam quis. Amet <br> commodo
+                        nulla
+                        facilisi nullam venenatis cras sed felis
+                    </p>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="detailsSpacing">
+            <div class="row">
+                <div class=" col-md-6">
+                    <h1 class=" detailsHeader">
+                        Senectus et netus et male <br> su ada fames ac turpis
+                    </h1>
+                    <p class="mt-5">
+                        Mi sit ameti diam vel quam elementum pulvinar etiam non. <br>
+                        Diam vulputate ut
+                        pharetra
+                        sit amet. Nulla at volutpat diam <br> ut
+                        venenatis tellus. Facilisi etiam dignissim diam quis. Amet <br> commodo
+                        nulla
+                        facilisi nullam venenatis cras sed felis
+                    </p>
+                </div>
+
+                <div class="col-md-6">
+                    <img src="../images/details-3.png" alt="details">
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- End of Details -->
+    <!-- Team -->
+    <section class="team container" id="Team">
+
+        <h1 class="text-center">Our <span>Team</span> </h1>
+
+     @*   <div class="teamCards">
+            <div class="row ">
+                <div class="col-md-3">
+                    <div class="card  Mcard" style="width: 16rem;">
+                        <img src="../images/avatar1.png" class="card-img-top" alt="team1">
+                        <div class="card-body">
+                            <h5 class="card-title text-center mt-3">Ahmed Owis Zakki</h5>
+                            <p class="card-text  text-center mt-3">
+                                Some quick example text
+                                to build on the card title and make up the
+                                bulk of the
+                                card's content.
+                            </p>
+                        </div>
+                        <hr>
+                        <div class="card-body text-center">
+                            <a href="#" class="card-link fs-6 " target="_blank">
+                                <i class="fa-brands fa-linkedin-in"></i>
+                            </a>
+                            <a href="#" class="card-link fs-6 " target="_blank">
+                                <i class="fa-brands fa-github"></i>
+                            </a>
+                            <a href="#" class="card-link fs-6" target="_blank">
+                                <i class="fa-brands fa-behance"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-3">
+                    <div class="card  Mcard" style="width: 16rem;">
+                        <img src="../images/team2.png" class="card-img-top" alt="team1">
+                        <div class="card-body">
+                            <h5 class="card-title text-center mt-3">Aya Tharwat</h5>
+                            <p class="card-text  text-center mt-3">
+                                Some quick example text
+                                to build on the card title and
+                                make up the
+                                bulk of the
+                                card's content.
+                            </p>
+                        </div>
+                        <hr>
+                        <div class="card-body text-center">
+                            <a href="https://www.linkedin.com/in/aya-tharwat-7b6b151b1"
+                               target="_blank" class="card-link fs-6 ">
+                                <i class="fa-brands fa-linkedin-in"></i>
+                            </a>
+                            <a href="#" class="card-link fs-6 " target="_blank">
+                                <i class="fa-brands fa-github"></i>
+                            </a>
+                            <a href="#" class="card-link fs-6" target="_blank">
+                                <i class="fa-brands fa-behance"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-3">
+                    <div class="card  Mcard" style="width: 16rem;">
+                        <img src="../images/team4.png" class="card-img-top" alt="team4">
+                        <div class="card-body">
+                            <h5 class="card-title text-center mt-3">Fatma Alaaeldin</h5>
+                            <p class="card-text  text-center mt-3">
+                                Some quick example text
+                                to build on the card title and
+                                make up the
+                                bulk of the
+                                card's content.
+                            </p>
+                        </div>
+                        <hr>
+                        <div class="card-body text-center">
+                            <a href="https://www.linkedin.com/in/fatma-alaaeldin/"
+                               target="_blank" class="card-link fs-6 ">
+                                <i class="fa-brands fa-linkedin-in"></i>
+                            </a>
+                            <a href="https://github.com/fatmaxalaa" class="card-link fs-6 "
+                               target="_blank"><i class="fa-brands fa-github"></i></a>
+                            <a href="https://www.behance.net/fatmaxalaa"
+                               class="card-link fs-6" target="_blank">
+                                <i class="fa-brands fa-behance"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-3">
+                    <div class="card  Mcard" style="width: 16rem;">
+                        <img src="../images/team3.png"  class="card-img-top" alt="team4">
+                        <div class="card-body">
+                            <h5 class="card-title text-center mt-3">Wesam Morsy</h5>
+                            <p class="card-text  text-center mt-3">
+                                Some quick example text
+                                to build on the card title and
+                                make up the
+                                bulk of the
+                                card's content.
+                            </p>
+                        </div>
+                        <hr>
+                        <div class="card-body text-center">
+                            <a href="https://www.linkedin.com/in/wesam-morsy-0ba0a016b/"
+                               target="_blank" class="card-link fs-6 ">
+                                <i class="fa-brands fa-linkedin-in"></i>
+                            </a>
+                            <a href="#" class="card-link fs-6 " target="_blank">
+                                <i class="fa-brands fa-github"></i>
+                            </a>
+                            <a href="# " class="card-link fs-6" target="_blank">
+                                <i class="fa-brands fa-behance"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>*@
+
+
+        <div class="teams mt-0">
+                        <div class="team">
+                                <img src="~/images/avatar1.png" alt="">
+                                <h3>Ahmed Owis </h3>
+                                <p>any title</p>
+                                <div class="share">
+                                        <a href="#"><i class="fa-brands fa-behance"></i></a>
+                                        <a href="#"><i class="fa-brands fa-github"></i></a>
+                                        
+                                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                                </div>
+                        </div>
+                        <div class="team">
+                                <img src="~/images/team2.png" alt="">
+                                <h3>Aya Tharwat</h3>
+                                 <p>any title</p>
+                                 <div class="share">
+                                        <a href="#" target="_blank"><i class="fa-brands fa-behance"></i></a>
+                                        <a href="#" target="_blank"><i class="fa-brands fa-github"></i></a>
+                                        
+                                        <a href="https://www.linkedin.com/in/aya-tharwat-7b6b151b1" target="_blank"><i class="fab fa-linkedin"></i></a>
+                                </div>
+                        </div>
+                        <div class="team">
+                                <img src="~/images/team4.png" alt="">
+                                <h3>Fatma Alaa</h3>
+                                 <p>any title</p>
+                                 <div class="share">
+                                        <a href="https://www.behance.net/fatmaxalaa" target="_blank"><i class="fa-brands fa-behance"></i></a>
+                                        <a href="https://github.com/fatmaxalaa" target="_blank"><i class="fa-brands fa-github"></i></a>
+                                        
+                                        <a href="https://www.linkedin.com/in/fatma-alaaeldin/"  target="_blank"> <i class="fab fa-linkedin"></i></a>
+                                </div>
+                        </div> 
+                        <div class="team">
+                                <img src="~/images/team3.png" alt="">
+                                <h3>Wesam Morsy</h3>
+                                 <p>any title</p>
+                                 <div class="share">
+                                        <a href="#"><i class="fa-brands fa-behance"></i></a>
+                                        <a href="#"><i class="fa-brands fa-github"></i></a>
+                                        
+                                        <a href="https://www.linkedin.com/in/wesam-morsy-0ba0a016b/" target="_blank"><i class="fab fa-linkedin"></i></a>
+                                </div>
+                        </div>
+                       
+                </div>
+
+
+
+
+
+    </section>
+    <!-- End of Team -->
+    <!-- Video -->
+    <section class="video container" id="Video">
+
+        <div class="videoSpacing">
+            <div class="row">
+                <div class=" col-md-6">
+                    <h1 class=" videoHeader">
+                        Senectus et netus et male <br> su ada fames ac turpis
+                    </h1>
+                    <p class="mt-5">
+                        Mi sit ameti diam vel quam elementum pulvinar etiam non. <br>
+                        Diam vulputate ut pharetra
+                        sit amet. Nulla at volutpat diam <br> ut
+                        venenatis tellus. Facilisi etiam dignissim diam quis. Amet <br> commodo
+                        nulla
+                        facilisi nullam venenatis cras sed felis
+                    </p>
+                </div>
+
+                <div class="col-md-6">
+                    <video width="620" height="340" controls>
+                        <source src="../Video/video.mp4" type="video/mp4" class="videoPlayer">
+
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- End of Video -->
+    <!-- Footer -->
+    <footer class="footer bg-dark">
+        <p class="text-white container-fluid">
+            Copyright &copy; 2021-2022 <span class=" text-danger fs-5 text-decoration-underline">ITI</span> Team , All Rights
+            Reserved.
+        </p>
+    </footer>
+    <!-- End of Footer -->
+
+
+
+
+
+
+
+
+
+
+  
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+   
+</body>
+</html>
+

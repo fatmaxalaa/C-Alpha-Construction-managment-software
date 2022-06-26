@@ -1,0 +1,44 @@
+﻿@model Resources.Models.Issues
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_ AdminLayoutPage.cshtml";
+}
+
+@section PageSec{
+     <section class="home-section" id="home">
+
+<div class="home-content">
+    <div class="container p-3 mt-4 border pb-4 "  style="box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;">
+            <h1  class="projectName mt-3">Issues <span>Details</span></h1>
+            <hr />
+            <dl class="row">
+                <dt class = "col-sm-2">
+                    @Html.DisplayNameFor(model => model.IsusseName)
+                </dt>
+                <dd class = "col-sm-10">
+                    @Html.DisplayFor(model => model.IsusseName)
+                </dd>
+                <dt class = "col-sm-2">
+                    @Html.DisplayNameFor(model => model.IssuerDescription)
+                </dt>
+                <dd class = "col-sm-10">
+                    @Html.DisplayFor(model => model.IssuerDescription)
+                </dd>
+                <dt class = "col-sm-2">
+                    @Html.DisplayNameFor(model => model.IssueDate)
+                </dt>
+                <dd class = "col-sm-10">
+                    @Html.DisplayFor(model => model.IssueDate)
+                </dd>
+            </dl>
+            <div class="mt-4 pb-4">
+            <a asp-action="Index"class="bttn mr-2"><i class="fa-solid fa-circle-left"></i></a>
+            <a asp-action="Edit" asp-route-id="@Model.Id" class="bttn px-3">Edit</a> 
+    
+            </div>
+</div>
+
+</div>
+</section>
+}

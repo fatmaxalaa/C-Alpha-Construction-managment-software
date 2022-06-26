@@ -1,0 +1,70 @@
+﻿@model Resources.Models.Lag
+
+@{
+   ViewData["Title"] = "create Lag";
+    Layout = "~/Views/Shared/_ AdminLayoutPage.cshtml";
+    List<string> optionsnames = (List<string>)ViewBag.names;
+   List<string>TargetNames= ViewBag.TargetNames;
+}
+@section PageSec{
+
+    <section class="home-section" id="home">
+        <div id="GFG" class="home-content">
+<h1>Create</h1>
+
+<h4>Lag</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <span class="text-dark"> Predessor Name</span>
+                
+               <select asp-for="SourceName" class="form-control" >   
+                @for(int item=0;item<optionsnames.Count; item++)
+                {
+                     <option value="@optionsnames[item]">@optionsnames[item]</option>
+          
+                }
+
+                </select>
+                <span asp-validation-for="SourceName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                   <span class="text-dark"> Successor Name</span>
+                    
+                       
+                    <select asp-for="TargetName" class="form-control" > 
+                   @for(int item=0;item<TargetNames.Count; item++)
+                   {
+                        <option value="@TargetNames[item]">@TargetNames[item]</option>
+
+                   }
+
+                   </select>
+                   <span asp-validation-for="TargetName" class="text-danger"></span>
+               </div>
+            <div class="form-group">
+                <label asp-for="LagValue" class="control-label"></label>
+                <input asp-for="LagValue" class="form-control" />
+                <span asp-validation-for="LagValue" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                 <a asp-action="Index"class="bttn"style="font-size:17px;"><i class="fa-solid fa-circle-left"></i></a>
+                <input type="submit" value="Create" class="bttn" />
+                
+            </div>
+        </form>
+    </div>
+</div>
+
+
+          </div>
+                       
+    </section>
+    
+
+
+}
+
